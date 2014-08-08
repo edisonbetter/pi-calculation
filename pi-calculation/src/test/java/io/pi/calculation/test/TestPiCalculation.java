@@ -1,7 +1,5 @@
 package io.pi.calculation.test;
 
-import io.pi.calculation.service.PiCalculationService;
-
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
 import java.math.BigDecimal;
@@ -10,6 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.edison.pi.calculation.service.PiCalculationService;
 
 public class TestPiCalculation {
 	private ApplicationContext context;
@@ -36,8 +36,6 @@ public class TestPiCalculation {
 		System.out.println("Memory Max size: " +  maxMemory);
 		System.out.println("Memory Used size: " + usedMemory);
 		System.out.println("Memory usage: " +  usage);
-				
-		OperatingSystemMXBean  xb = ManagementFactory.getOperatingSystemMXBean();
 	}
 	
 	//@Test

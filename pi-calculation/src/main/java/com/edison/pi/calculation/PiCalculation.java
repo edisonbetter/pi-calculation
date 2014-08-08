@@ -1,4 +1,4 @@
-package io.pi.calculation;
+package com.edison.pi.calculation;
 
 public class PiCalculation {
 

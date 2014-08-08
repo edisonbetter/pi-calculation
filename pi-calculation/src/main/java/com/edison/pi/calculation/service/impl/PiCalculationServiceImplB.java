@@ -1,8 +1,8 @@
-package io.pi.calculation.service.impl;
+package com.edison.pi.calculation.service.impl;
 
 import org.junit.Assert;
 
-import io.pi.calculation.service.PiCalculationService;
+import com.edison.pi.calculation.service.PiCalculationService;
 
 public class PiCalculationServiceImplB implements PiCalculationService {
 	private int calculationTimes;

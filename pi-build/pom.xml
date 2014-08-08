@@ -6,7 +6,7 @@
   <description>This project is used to build pi-calculation</description>
   
   <parent>
-    <groupId>pi.io</groupId>
+    <groupId>edison.com</groupId>
     <artifactId>pi-parent</artifactId>
     <version>1.0</version>
     <relativePath>../pi-parent</relativePath>
