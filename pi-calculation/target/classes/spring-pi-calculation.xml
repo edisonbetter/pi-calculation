@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="piCalculation" class="io.pi.calculation.service.impl.PiCalculationServiceImpl">
+	<property name="calculationTimes" value="1000000000"/>
+</bean>
+
+<bean id="piCalculation_backup" class="io.pi.calculation.service.impl.PiCalculationServiceImplB">
+	<property name="calculationTimes" value="100"/>
+</bean>
+
+</beans>

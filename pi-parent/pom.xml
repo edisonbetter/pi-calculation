@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pi.io</groupId>
+	<artifactId>pi-parent</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>pi-parent</name>
+	<description>pi-parent</description>
+
+	<properties>
+		<!-- jdk version -->
+		<jdk.version>1.7</jdk.version>
+
+		<!-- lib version -->
+		<lib.junit.version>4.11</lib.junit.version>
+		<lib.spring.version>4.0.6.RELEASE</lib.spring.version>
+
+		<!-- plugin version -->
+		<plugin.compiler.version>3.1</plugin.compiler.version>
+		<plugin.surefire.version>2.17</plugin.surefire.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- JUnit -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${lib.junit.version}</version>
+			</dependency>
+			
+			<!-- Spring -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${lib.spring.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- basic plugins definition -->
+	<build>
+		<plugins>
+			<!-- maven compiler plugin, to specify the j -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${plugin.compiler.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+
+			<!-- maven testing plugin, to generate reports for test cases -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${plugin.surefire.version}</version>
+				<configuration>
+					<skipTests>false</skipTests>
+					<testFailureIgnore>false</testFailureIgnore>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
