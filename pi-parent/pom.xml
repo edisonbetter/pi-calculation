@@ -13,7 +13,7 @@
 		<jdk.version>1.7</jdk.version>
 
 		<!-- lib version -->
-		<lib.junit.version>4.11</lib.junit.version>
+		<lib.junit.version>4.10</lib.junit.version>
 		<lib.spring.version>4.0.6.RELEASE</lib.spring.version>
 
 		<!-- plugin version -->
