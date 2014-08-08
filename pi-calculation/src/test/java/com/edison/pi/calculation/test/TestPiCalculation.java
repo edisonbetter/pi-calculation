@@ -1,4 +1,4 @@
-package io.pi.calculation.test;
+package com.edison.pi.calculation.test;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
