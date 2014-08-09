@@ -1,21 +1,79 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <artifactId>pi-build</artifactId>
-  <packaging>pom</packaging>
-  <name>pi-build</name>
-  <description>This project is used to build pi-calculation</description>
-  
-  <parent>
-    <groupId>edison.com</groupId>
-    <artifactId>pi-parent</artifactId>
-    <version>1.0</version>
-    <relativePath>../pi-parent</relativePath>
-  </parent>
-  
-  <!-- modules to be built -->
-  <modules>
-  	<module>../pi-parent</module>
-  	<module>../pi-calculation</module>
-  </modules>
-  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>pi-build</artifactId>
+	<packaging>pom</packaging>
+	<name>pi-build</name>
+	<description>This project is used to build pi-calculation</description>
+
+	<parent>
+		<groupId>edison.com</groupId>
+		<artifactId>pi-parent</artifactId>
+		<version>1.0</version>
+		<relativePath>../pi-parent</relativePath>
+	</parent>
+
+	<!-- modules to be built -->
+	<modules>
+		<module>../pi-parent</module>
+		<module>../pi-calculation</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>edison.com</groupId>
+			<artifactId>pi-calculation</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<!-- profile to deploy pi home -->
+		<profile>
+			<id>deployment</id>
+			<build>
+				<plugins>
+					
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>${plugin.assembly.version}</version>
+						<executions>
+							<execution>
+								<id>package-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<finalName>${deployment.home}</finalName>
+									<outputDirectory>${deployment.root}</outputDirectory>
+									<appendAssemblyId>false</appendAssemblyId>
+									<descriptors>
+										<descriptor>build-assembly.xml</descriptor>
+									</descriptors>
+									<updateOnly>false</updateOnly>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- profile to check OS platform, if it is Windows, then the property 
+			deployment.root should be changed accordingly -->
+		<profile>
+			<id>build-platform-windows</id>
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+			<properties>
+				<deployment.root>C:/</deployment.root>
+			</properties>
+		</profile>
+	</profiles>
+
 </project>

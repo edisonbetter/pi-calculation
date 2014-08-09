@@ -19,6 +19,18 @@
 		<!-- plugin version -->
 		<plugin.compiler.version>3.1</plugin.compiler.version>
 		<plugin.surefire.version>2.17</plugin.surefire.version>
+		<plugin.assembly.version>2.4.1</plugin.assembly.version>
+		<plugin.jar.version>2.5</plugin.jar.version>
+
+		<!-- deployment home -->
+		<deployment.root>/opt/dev</deployment.root>
+		<deployment.home>pi</deployment.home>
+		<pi.home>${deployment.root}/${deployment.home}</pi.home>
+		<pi.lib>lib</pi.lib>
+		<pi.bin>bin</pi.bin>
+
+		<source.main.bin>src/main/bin</source.main.bin>
+
 	</properties>
 
 	<dependencyManagement>
@@ -29,7 +41,7 @@
 				<artifactId>junit</artifactId>
 				<version>${lib.junit.version}</version>
 			</dependency>
-			
+
 			<!-- Spring -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -61,6 +73,22 @@
 				<configuration>
 					<skipTests>false</skipTests>
 					<testFailureIgnore>false</testFailureIgnore>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${plugin.jar.version}</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+						<manifestEntries>
+							<Class-Path>../config/</Class-Path>
+						</manifestEntries>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>

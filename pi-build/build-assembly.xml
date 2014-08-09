@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+
+	<id>assembly</id>
+	<formats>
+		<format>dir</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<moduleSets>
+		<moduleSet>
+			<sources>
+				<includeModuleDirectory>false</includeModuleDirectory>
+				<fileSets>
+					<fileSet>
+						<directory>${project.build.directory}</directory>
+						<outputDirectory>${pi.lib}</outputDirectory>
+						<includes>
+							<include>*.jar</include>
+						</includes>
+					</fileSet>
+					<!-- <fileSet>
+						<directory>${source.main.config}</directory>
+						<outputDirectory>${pi.config}</outputDirectory>
+						<includes>
+							<include>**/**</include>
+						</includes>
+						<filtered>true</filtered>
+					</fileSet> -->
+					<fileSet>
+						<directory>${source.main.bin}</directory>
+						<outputDirectory>${pi.bin}</outputDirectory>
+						<includes>
+							<include>**/*.bat</include>
+							<include>**/*.sh</include>
+						</includes>
+						<filtered>true</filtered>
+					</fileSet>
+				</fileSets>
+			</sources>
+		</moduleSet>
+	</moduleSets>
+	
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>${pi.lib}</outputDirectory>
+			<includes>
+				<include>*:*:jar:*</include>
+			</includes>
+		</dependencySet>
+	</dependencySets>
+</assembly>

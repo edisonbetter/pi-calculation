@@ -1,26 +1,23 @@
 package com.edison.pi.calculation;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.edison.pi.calculation.service.PiCalculationService;
+
 public class PiCalculation {
-
-	public double calculate(int n) throws Exception {
-		if (n < 0) {
-			throw new Exception("parameter n can't be negtive");
-		}
-
-		double result = doCalculate(n);
-		double pi = derivePi(result);
-		return pi;
+	private static ApplicationContext context ;
+	private static PiCalculationService calculationService;
+	
+	
+	public static void main(String[] args){
+		context = new ClassPathXmlApplicationContext("spring-pi-calculation.xml");
+		calculationService = (PiCalculationService) context.getBean("piCalculation");
+		double result = calculationService.calculate();
+		outputResult(result);
 	}
-
-	private double doCalculate(int n) {
-		double var = 0;
-		for (; n >= 0; n--) {
-			var = var + Math.pow(-1, n) / (2 * n + 1);
-		}
-		return var;
-	}
-
-	private double derivePi(double result) {
-		return result * 4;
+	
+	private static void outputResult(double result){
+		System.out.println("The Pi calculation result is: " + result);
 	}
 }
