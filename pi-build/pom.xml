@@ -33,7 +33,6 @@
 			<id>deployment</id>
 			<build>
 				<plugins>
-					
 					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
 						<version>${plugin.assembly.version}</version>

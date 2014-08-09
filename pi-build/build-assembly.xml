@@ -21,14 +21,14 @@
 							<include>*.jar</include>
 						</includes>
 					</fileSet>
-					<!-- <fileSet>
+					<fileSet>
 						<directory>${source.main.config}</directory>
 						<outputDirectory>${pi.config}</outputDirectory>
 						<includes>
 							<include>**/**</include>
 						</includes>
 						<filtered>true</filtered>
-					</fileSet> -->
+					</fileSet>
 					<fileSet>
 						<directory>${source.main.bin}</directory>
 						<outputDirectory>${pi.bin}</outputDirectory>

@@ -14,10 +14,12 @@ public class PiCalculation {
 		context = new ClassPathXmlApplicationContext("spring-pi-calculation.xml");
 		calculationService = (PiCalculationService) context.getBean("piCalculation");
 		double result = calculationService.calculate();
-		outputResult(result);
+		outputResult(calculationService.getCalculationTimes(), result);
 	}
 	
-	private static void outputResult(double result){
-		System.out.println("The Pi calculation result is: " + result);
+	private static void outputResult(int terms, double result){
+		System.out.println("The Pi calculation term   : " + terms);
+		System.out.println("The Pi calculation result : " + result);
+		System.out.println();
 	}
 }
