@@ -18,7 +18,7 @@ public class PiCalculation {
 	}
 	
 	private static void outputResult(int terms, double result){
-		System.out.println("The Pi calculation term   : " + terms);
+		System.out.println("The Pi calculation terms   : " + terms);
 		System.out.println("The Pi calculation result : " + result);
 		System.out.println();
 	}
