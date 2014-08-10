@@ -2,8 +2,6 @@ package com.edison.pi.calculation.test;
 
 import java.math.BigDecimal;
 
-import junit.framework.Assert;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
