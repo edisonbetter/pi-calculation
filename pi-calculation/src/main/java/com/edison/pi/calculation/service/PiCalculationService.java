@@ -1,7 +1,13 @@
 package com.edison.pi.calculation.service;
 
+/**
+ * This interface is for Pi calculation
+ * 
+ * @author Edison Yang
+ *
+ */
 public interface PiCalculationService {
 	double calculate();
-	int getCalculationTimes();
-	void setCalculationTimes(int calculationTimes);
+	int getNumberOfTerms();
+	void setNumberOfTerms(int numberOfTerms);
 }

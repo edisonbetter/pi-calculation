@@ -27,7 +27,7 @@ public class TestPiCalculationCoverage {
 	// @Test
 	public void test_10_to_100_terms() {
 		for (int i = 10; i < 100; i++) {
-			calculationService.setCalculationTimes(i);
+			calculationService.setNumberOfTerms(i);
 			double result = calculationService.calculate();
 			BigDecimal difference = getDifference(result);
 			int accurateDecimalDigit = getAccurateDecimalDigits(difference);
@@ -38,7 +38,7 @@ public class TestPiCalculationCoverage {
 	// @Test
 	public void test_100_to_1000_terms() {
 		for (int i = 100; i < 1000; i++) {
-			calculationService.setCalculationTimes(i);
+			calculationService.setNumberOfTerms(i);
 			double result = calculationService.calculate();
 			BigDecimal difference = getDifference(result);
 			int accurateDecimalDigit = getAccurateDecimalDigits(difference);
@@ -49,7 +49,7 @@ public class TestPiCalculationCoverage {
 	// @Test
 	public void test_1000_to_10000_terms() {
 		for (int i = 1000; i < 10000; i++) {
-			calculationService.setCalculationTimes(i);
+			calculationService.setNumberOfTerms(i);
 			double result = calculationService.calculate();
 			BigDecimal difference = getDifference(result);
 			int accurateDecimalDigit = getAccurateDecimalDigits(difference);
@@ -64,7 +64,7 @@ public class TestPiCalculationCoverage {
 			Thread thread = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					calculationService.setCalculationTimes(terms);
+					calculationService.setNumberOfTerms(terms);
 					double result = calculationService.calculate();
 					BigDecimal difference = getDifference(result);
 					int accurateDecimalDigit = getAccurateDecimalDigits(difference);
@@ -76,14 +76,14 @@ public class TestPiCalculationCoverage {
 		}
 	}
 
-	@Test
+	//@Test
 	public void test_100000_to_1000000_terms() {
 		for (int i = 100000; i < 1000000; i++) {
 			final int terms = i;
 			Thread thread = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					calculationService.setCalculationTimes(terms);
+					calculationService.setNumberOfTerms(terms);
 					double result = calculationService.calculate();
 					BigDecimal difference = getDifference(result);
 					int accurateDecimalDigit = getAccurateDecimalDigits(difference);
@@ -98,7 +98,7 @@ public class TestPiCalculationCoverage {
 	// @Test
 	public void test_1000000_to_10000000_terms() {
 		for (int i = 1000000; i < 10000000; i++) {
-			calculationService.setCalculationTimes(i);
+			calculationService.setNumberOfTerms(i);
 			double result = calculationService.calculate();
 			BigDecimal difference = getDifference(result);
 			int accurateDecimalDigit = getAccurateDecimalDigits(difference);

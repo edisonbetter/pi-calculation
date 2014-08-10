@@ -5,28 +5,30 @@ import org.junit.Assert;
 import com.edison.pi.calculation.service.PiCalculationService;
 
 public class PiCalculationServiceImplB implements PiCalculationService {
-	private int calculationTimes;
+	private int numberOfTerms;
 	
-	public int getCalculationTimes() {
-		return calculationTimes;
+	@Override
+	public int getNumberOfTerms() {
+		return numberOfTerms;
 	}
 
-	public void setCalculationTimes(int calculationTimes) {
-		this.calculationTimes = calculationTimes;
+	@Override
+	public void setNumberOfTerms(int numberOfTerms) {
+		this.numberOfTerms = numberOfTerms;
 	}
 
 	@Override
 	public double calculate(){
-		Assert.assertTrue("parameter calculationTimes can't be negtive as " + calculationTimes, calculationTimes >= 0);
+		Assert.assertTrue("parameter calculationTimes can't be negtive as " + numberOfTerms, numberOfTerms >= 0);
 
-		double result = doCalculate(calculationTimes);
+		double result = doCalculate(numberOfTerms);
 		result = derivePi(result);
 		return result;
 	}
 	
-	private double doCalculate(int calculationTimes) {
+	private double doCalculate(int numberOfTerms) {
 		double var = 0;
-		for (int i = 0 ; i != calculationTimes; i++) {
+		for (int i = 0 ; i != numberOfTerms; i++) {
 			var = var + Math.pow(-1, i) / (2 * i + 1);
 		}
 		return var;

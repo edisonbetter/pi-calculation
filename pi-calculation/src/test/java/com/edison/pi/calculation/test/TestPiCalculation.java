@@ -24,73 +24,65 @@ public class TestPiCalculation {
 
 	@Test
 	public void test_10_terms() {
-		calculationService.setCalculationTimes(10);
+		calculationService.setNumberOfTerms(10);
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 
 	@Test
 	public void test_100_terms() {
-		calculationService.setCalculationTimes(100);
+		calculationService.setNumberOfTerms(100);
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 
 	@Test
 	public void test_1000_terms() {
-		calculationService.setCalculationTimes(1000);
+		calculationService.setNumberOfTerms(1000);
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 
 	@Test
 	public void test_10_000_terms() {
-		calculationService.setCalculationTimes(10000);
+		calculationService.setNumberOfTerms(10000);
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 
 	@Test
 	public void test_100_000_terms() {
-		calculationService.setCalculationTimes(100000);
+		calculationService.setNumberOfTerms(100000);
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 
 	@Test
 	public void test_1000_000_terms() {
-		calculationService.setCalculationTimes(1000000);
+		calculationService.setNumberOfTerms(1000000);
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 
 	@Test
 	public void test_10_000_000_terms() {
-		calculationService.setCalculationTimes(10000000);
+		calculationService.setNumberOfTerms(10000000);
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 
 	@Test
 	public void test_100_000_000_terms() {
-		calculationService.setCalculationTimes(100000000);
+		calculationService.setNumberOfTerms(100000000);
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 
 	//@Test
 	public void test_1_000_000_000_terms() {
-		calculationService.setCalculationTimes(1000000000);
+		calculationService.setNumberOfTerms(1000000000);
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
-	}
-
-	//@Test
-	public void test_10() {
-
-		calculationService.setCalculationTimes(1000000000);
-		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 
 	private void outputResult(int terms, double result) {

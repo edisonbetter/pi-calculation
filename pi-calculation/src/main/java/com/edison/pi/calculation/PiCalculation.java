@@ -5,6 +5,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.edison.pi.calculation.service.PiCalculationService;
 
+/**
+ * This class is the entry point of pi calculation
+ * 
+ * @author edisonyang
+ *
+ */
 public class PiCalculation {
 	private static ApplicationContext context ;
 	private static PiCalculationService calculationService;
@@ -14,7 +20,7 @@ public class PiCalculation {
 		context = new ClassPathXmlApplicationContext("spring-pi-calculation.xml");
 		calculationService = (PiCalculationService) context.getBean("piCalculation");
 		double result = calculationService.calculate();
-		outputResult(calculationService.getCalculationTimes(), result);
+		outputResult(calculationService.getNumberOfTerms(), result);
 	}
 	
 	private static void outputResult(int terms, double result){
