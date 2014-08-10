@@ -8,7 +8,7 @@ import com.edison.pi.calculation.service.PiCalculationService;
  * This is one implementation for Pi calculation 
  * 
  * @author Edison Yang
- *
+ * @date 2014-08-10 
  */
 public class PiCalculationServiceImpl implements PiCalculationService {
 	private int numberOfTerms;
@@ -25,7 +25,7 @@ public class PiCalculationServiceImpl implements PiCalculationService {
 
 	@Override
 	public double calculate(){
-		Assert.assertTrue("parameter calculationTimes can't be negtive as " + numberOfTerms, numberOfTerms >= 0);
+		Assert.assertTrue("parameter number of terms can't be negtive as " + numberOfTerms, numberOfTerms >= 0);
 
 		double result = doCalculate(numberOfTerms);
 		result = derivePi(result);

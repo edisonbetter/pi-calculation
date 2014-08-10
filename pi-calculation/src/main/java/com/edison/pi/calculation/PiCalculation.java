@@ -9,7 +9,7 @@ import com.edison.pi.calculation.service.PiCalculationService;
  * This class is the entry point of pi calculation
  * 
  * @author edisonyang
- *
+ * @date 2014-08-10 
  */
 public class PiCalculation {
 	private static ApplicationContext context ;

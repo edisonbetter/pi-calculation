@@ -11,6 +11,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.edison.pi.calculation.service.PiCalculationService;
 
+/**
+ * Test for PICalculationService
+ * 
+ * @author Edison Yang
+ * @date 2014-08-10
+ *
+ */
 public class TestPiCalculation {
 	private static ApplicationContext context;
 	private static PiCalculationService calculationService;
