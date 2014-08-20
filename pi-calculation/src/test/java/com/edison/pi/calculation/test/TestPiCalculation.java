@@ -2,8 +2,9 @@ package com.edison.pi.calculation.test;
 
 import java.math.BigDecimal;
 
-import junit.framework.Assert;
 
+
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -30,94 +31,105 @@ public class TestPiCalculation {
 		calculationService = (PiCalculationService) context
 				.getBean("piCalculation");
 	}
-
+	
 	@Test
-	public void test_10_terms() {
+	public void test_0_terms(){
+		calculationService.setNumberOfTerms(0);
+		double result = calculationService.calculate();
+		final double expectedResult = 4;
+		Assert.assertEquals(expectedResult, result, 0);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_1_terms(){
+		calculationService.setNumberOfTerms(1);
+		double result = calculationService.calculate();
+		System.out.println(1/3);
+		double expectedResult = 4 * (1 - 1/3d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_2_terms(){
+		calculationService.setNumberOfTerms(2);
+		double result = calculationService.calculate();
+		double expectedResult = 4 * (1 - 1/3d + 1/5d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_3_terms(){
+		calculationService.setNumberOfTerms(3);
+		double result = calculationService.calculate();
+		double expectedResult = 4 * (1 - 1/3d + 1/5d - 1/7d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_4_terms(){
+		calculationService.setNumberOfTerms(4);
+		double result = calculationService.calculate();
+		double expectedResult = 4 * (1 - 1/3d + 1/5d - 1/7d + 1/9d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_5_terms(){
+		calculationService.setNumberOfTerms(5);
+		double result = calculationService.calculate();
+		double expectedResult = 4 * (1 - 1/3d + 1/5d - 1/7d + 1/9d - 1/11d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_6_terms(){
+		calculationService.setNumberOfTerms(6);
+		double result = calculationService.calculate();
+		double expectedResult = 4 * (1 - 1/3d + 1/5d - 1/7d + 1/9d - 1/11d + 1/13d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_7_terms(){
+		calculationService.setNumberOfTerms(7);
+		double result = calculationService.calculate();
+		double expectedResult = 4 * (1 - 1/3d + 1/5d - 1/7d + 1/9d - 1/11d + 1/13d - 1/15d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_8_terms(){
+		calculationService.setNumberOfTerms(8);
+		double result = calculationService.calculate();
+		double expectedResult = 4 * (1 - 1/3d + 1/5d - 1/7d + 1/9d - 1/11d + 1/13d - 1/15d + 1/17d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_9_terms(){
+		calculationService.setNumberOfTerms(9);
+		double result = calculationService.calculate();
+		double expectedResult = 4 * (1 - 1/3d + 1/5d - 1/7d + 1/9d - 1/11d + 1/13d - 1/15d + 1/17d - 1/19d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
+		outputResult(calculationService.getNumberOfTerms(), result);
+	}
+	
+	@Test
+	public void test_10_terms(){
 		calculationService.setNumberOfTerms(10);
 		double result = calculationService.calculate();
+		double expectedResult = 4 * (1 - 1/3d + 1/5d - 1/7d + 1/9d - 1/11d + 1/13d - 1/15d + 1/17d - 1/19d + 1/21d);
+		Assert.assertEquals(expectedResult, result, Double.NaN);
 		outputResult(calculationService.getNumberOfTerms(), result);
-	}
-
-	@Test
-	public void test_100_terms() {
-		calculationService.setNumberOfTerms(100);
-		double result = calculationService.calculate();
-		outputResult(calculationService.getNumberOfTerms(), result);
-	}
-
-	@Test
-	public void test_1000_terms() {
-		calculationService.setNumberOfTerms(1000);
-		double result = calculationService.calculate();
-		outputResult(calculationService.getNumberOfTerms(), result);
-	}
-
-	@Test
-	public void test_10_000_terms() {
-		calculationService.setNumberOfTerms(10000);
-		double result = calculationService.calculate();
-		outputResult(calculationService.getNumberOfTerms(), result);
-	}
-
-	@Test
-	public void test_100_000_terms() {
-		calculationService.setNumberOfTerms(100000);
-		double result = calculationService.calculate();
-		outputResult(calculationService.getNumberOfTerms(), result);
-	}
-
-	@Test
-	public void test_1000_000_terms() {
-		calculationService.setNumberOfTerms(1000000);
-		double result = calculationService.calculate();
-		outputResult(calculationService.getNumberOfTerms(), result);
-	}
-
-	@Test
-	public void test_10_000_000_terms() {
-		calculationService.setNumberOfTerms(10000000);
-		double result = calculationService.calculate();
-		outputResult(calculationService.getNumberOfTerms(), result);
-	}
-
-	@Test
-	public void test_100_000_000_terms() {
-		calculationService.setNumberOfTerms(100000000);
-		double result = calculationService.calculate();
-		outputResult(calculationService.getNumberOfTerms(), result);
-	}
-
-	@Test
-	public void test_10_to_100_terms() {
-		for (int i = 10; i < 100; i++) {
-			calculationService.setNumberOfTerms(i);
-			double result = calculationService.calculate();
-			BigDecimal difference = getDifference(result);
-			int accurateDecimalDigit = getAccurateDecimalDigits(difference);
-			Assert.assertTrue(accurateDecimalDigit >= 1);
-		}
-	}
-
-	@Test
-	public void test_100_to_1000_terms() {
-		for (int i = 100; i < 1000; i++) {
-			calculationService.setNumberOfTerms(i);
-			double result = calculationService.calculate();
-			BigDecimal difference = getDifference(result);
-			int accurateDecimalDigit = getAccurateDecimalDigits(difference);
-			Assert.assertTrue(accurateDecimalDigit >= 2);
-		}
-	}
-
-	@Test
-	public void test_1000_to_10000_terms() {
-		for (int i = 1000; i < 10000; i++) {
-			calculationService.setNumberOfTerms(i);
-			double result = calculationService.calculate();
-			BigDecimal difference = getDifference(result);
-			int accurateDecimalDigit = getAccurateDecimalDigits(difference);
-			Assert.assertTrue(accurateDecimalDigit >= 3);
-		}
 	}
 
 	private void outputResult(int terms, double result) {
@@ -129,29 +141,6 @@ public class TestPiCalculation {
 		System.out.println("Pi                      : " + PI);
 		System.out.println("Difference              : "
 				+ difference.toPlainString());
-		System.out.println("Accurate Decimal Digits : "
-				+ getAccurateDecimalDigits(difference));
 		System.out.println();
-	}
-
-	private BigDecimal getDifference(double result) {
-		BigDecimal difference = BigDecimal.valueOf(result)
-				.subtract(BigDecimal.valueOf(PI)).abs();
-		return difference;
-	}
-
-	private int getAccurateDecimalDigits(BigDecimal value) {
-		String valueString = value.toPlainString();
-		char[] valueChar = valueString.toCharArray();
-		int pointIndex = 0;
-		for (int i = 0; i < valueChar.length; i++) {
-			if (valueChar[i] == '.') {
-				pointIndex = i;
-				continue;
-			} else if (valueChar[i] != '0') {
-				return i - pointIndex - 1;
-			}
-		}
-		return valueChar.length;
 	}
 }

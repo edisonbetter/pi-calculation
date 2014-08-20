@@ -40,8 +40,9 @@ public class PiCalculationServiceImpl implements PiCalculationService {
 	 */
 	private double doCalculate(int numberOfTerms) {
 		double var = 0;
-		for (; numberOfTerms >= 0; numberOfTerms--) {
-			var = var + Math.pow(-1, numberOfTerms) / (2 * numberOfTerms + 1);
+
+		for (int i = 0 ; i <= numberOfTerms; i++) {
+			var = var + Math.pow(-1, i) / (2 * i + 1);
 		}
 		return var;
 	}
